@@ -6,7 +6,7 @@ public class Planet {
     public double mass;
     public String imgFileName;
 
-    public static double G = 6.67e-11;
+    public static final double G = 6.67e-11;
 
     public Planet(double xP, double yP, double xV, double yV, double m, String img) {
         xxPos = xP;
@@ -50,7 +50,7 @@ public class Planet {
         return calcForceExertedBy(p) * ((p.yyPos - this.yyPos) / (calcDistance(p)));
     }
 
-    public double calcNetForceExertedByX(Planet[] p) {
+    public  double calcNetForceExertedByX(Planet[] p) {
         double sum = 0;
         for (Planet p_1 : p) {
             if (this.equals(p_1))
@@ -68,5 +68,14 @@ public class Planet {
             sum += calcForceExertedByY(p_1);
         }
         return sum;
+    }
+    public void update(double dt, double fx, double fy) {
+           this.xxVel = this.xxVel+(fx/this.mass)*dt;
+           this.yyVel = this.yyVel+(fy/this.mass)*dt;
+           this.xxPos = this.xxPos+this.xxVel*dt;
+           this.yyPos = this.yyPos+this.yyVel*dt;
+    }
+    public void draw(){
+        StdDraw.picture(xxPos,yyPos,"images/"+imgFileName);
     }
 }
