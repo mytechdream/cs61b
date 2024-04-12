@@ -57,6 +57,11 @@ public class NBody {
                 t+=dt;
            }
 
+           System.out.println(planets.length);
+           System.out.printf("%e\n",r);
+           for(int i = 0;i<planets.length;i++){
+               System.out.printf("%e %e %e %e %e %s\n",planets[i].xxPos,planets[i].yyPos,planets[i].xxVel,planets[i].yyVel,planets[i].mass,planets[i].imgFileName);
+           }
     }
 
 }
