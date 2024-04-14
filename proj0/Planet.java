@@ -6,7 +6,7 @@ public class Planet {
     public double mass;
     public String imgFileName;
 
-    public static final double G = 6.67e-11;
+    private static final double G = 6.67e-11;
 
     public Planet(double xP, double yP, double xV, double yV, double m, String img) {
         xxPos = xP;
@@ -25,11 +25,11 @@ public class Planet {
         p.mass = this.mass;
         p.imgFileName = this.imgFileName;
     }
-    public boolean equals(Planet p) {
-        if (p.xxPos == this.xxPos && p.yyPos == this.yyPos && p.mass == this.mass)
-            return true;
-        return false;
-    }
+//    public boolean equals(Planet p) {
+//        if (p.xxPos == this.xxPos && p.yyPos == this.yyPos && p.mass == this.mass)
+//            return true;
+//        return false;
+//    }
 
     public double calcDistance(Planet p) {
         return Math.sqrt(
